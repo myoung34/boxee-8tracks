@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app>
+  <id>8tracks</id>
+  <name>8tracks.com</name>
+  <version>0.1</version>
+  <description>Play 8tracks mixes on your TV.</description>
+  <thumb>http://yourdomain.com/yourapp/images/thumb.png</thumb>
+  <repository>http://dir.boxee.tv/apps</repository>
+  <media>music</media>
+  <copyright>IMC</copyright>
+  <email>ivascucristian@gmail.com</email>
+  <type>skin</type>
+  <startWindow>14000</startWindow>
+  <platform>all</platform>
+  <minversion>0.9.11</minversion>
+  <is-persistent>true</is-persistent>
+  <test-app>true</test-app>
+</app>
+

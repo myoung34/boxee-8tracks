@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="14000">
+ <defaultcontrol always="true">100</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <controls>
+    	<control type="label">
+    		<width>800</width>
+    		<posx>50</posx>
+    		<posy>100</posy>
+    		<font>font20b</font>
+    		<label>Hello 8tracks!</label>
+    	</control>
+    </controls>
+</window>
