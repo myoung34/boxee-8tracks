@@ -1,0 +1,40 @@
+button bar:
+<posx>195</posx>
+<posy>52</posy>
+<height>50</height>
+
+
+new: 
+x: 195
+width: 95
+
+liked:
+x: 300
+width: 96
+
+featured:
+x:406
+width: 125
+
+hot: 
+x: 539
+width: 76
+
+settings:
+
+x: 624
+width: 142
+
+search:
+x: 1074
+width: 196
+
+height: 43
+
+
+mix:
+image: 135x135
+title
+author
+total: height: 200
+width: 137
