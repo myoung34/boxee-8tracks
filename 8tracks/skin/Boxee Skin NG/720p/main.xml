@@ -5,7 +5,7 @@
     <onload lang="python"><![CDATA[
 import mc
 import util
-util.show_message()
+util.getFeaturedMixes()
 ]]>
     </onload>   
     <controls>
@@ -174,6 +174,63 @@ util.toggleTabs(14)
 					<onleft>14</onleft>
 					<onright>10</onright>
 				</control>
+	    	</control>
+	    	
+	    	<control type="list" id="201">
+	    		<posx>30</posx>
+	    		<posy>102</posy>
+	    		<width>1280</width>
+	    		<height>600</height>
+	    		<visible>true</visible>
+	    		<viewtype label="3D list">list</viewtype>
+   				<orientation>vertical</orientation>
+   				<bordersize>3</bordersize>
+			   <pagecontrol>25</pagecontrol>
+			   <scrolltime>200</scrolltime>
+				<itemlayout width="500" height="201">
+				
+			      <control type="image">
+			         <posx>5</posx>
+			         <posy>1</posy>
+			         <width>200</width>
+			         <height>200</height>
+			         <info>ListItem.Icon</info>
+			      </control>
+			      
+			      <control type="label">
+			         <posx>210</posx>
+			         <posy>3</posy>
+			         <width>200</width>
+			         <height>22</height>
+			         <font>font13</font>
+			         <aligny>center</aligny>
+			         <selectedcolor>green</selectedcolor>
+			         <align>left</align>
+			         <info>ListItem.Title</info>
+			      </control>
+			   </itemlayout>
+			   
+				<focusedlayout width="510" height="201">
+			      <control type="image">
+			         <posx>5</posx>
+			         <posy>1</posy>
+			         <width>200</width>
+			         <height>200</height>
+			         <info>ListItem.Icon</info>
+			      </control>
+			      
+			      <control type="label">
+			         <posx>210</posx>
+			         <posy>3</posy>
+			         <width>200</width>
+			         <height>22</height>
+			         <font>font13</font>
+			         <aligny>center</aligny>
+			         <selectedcolor>green</selectedcolor>
+			         <align>left</align>
+			         <info>ListItem.Title</info>
+			      </control>
+			   </focusedlayout>		   
 	    	</control>
 		</control>    
     </controls>
