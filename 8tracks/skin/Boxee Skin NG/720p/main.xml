@@ -176,62 +176,98 @@ util.toggleTabs(14)
 				</control>
 	    	</control>
 	    	
-	    	<control type="list" id="201">
-	    		<posx>30</posx>
-	    		<posy>102</posy>
-	    		<width>1280</width>
-	    		<height>600</height>
-	    		<visible>true</visible>
-	    		<viewtype label="3D list">list</viewtype>
-   				<orientation>vertical</orientation>
-   				<bordersize>3</bordersize>
-			   <pagecontrol>25</pagecontrol>
-			   <scrolltime>200</scrolltime>
-				<itemlayout width="500" height="201">
-				
-			      <control type="image">
-			         <posx>5</posx>
-			         <posy>1</posy>
-			         <width>200</width>
-			         <height>200</height>
-			         <info>ListItem.Icon</info>
-			      </control>
-			      
-			      <control type="label">
-			         <posx>210</posx>
-			         <posy>3</posy>
-			         <width>200</width>
-			         <height>22</height>
-			         <font>font13</font>
-			         <aligny>center</aligny>
-			         <selectedcolor>green</selectedcolor>
-			         <align>left</align>
-			         <info>ListItem.Title</info>
-			      </control>
-			   </itemlayout>
-			   
-				<focusedlayout width="510" height="201">
-			      <control type="image">
-			         <posx>5</posx>
-			         <posy>1</posy>
-			         <width>200</width>
-			         <height>200</height>
-			         <info>ListItem.Icon</info>
-			      </control>
-			      
-			      <control type="label">
-			         <posx>210</posx>
-			         <posy>3</posy>
-			         <width>200</width>
-			         <height>22</height>
-			         <font>font13</font>
-			         <aligny>center</aligny>
-			         <selectedcolor>green</selectedcolor>
-			         <align>left</align>
-			         <info>ListItem.Title</info>
-			      </control>
-			   </focusedlayout>		   
+	    	<control type="panel" id="201">
+	    		<posx>10</posx>
+	    		<posy>105</posy>
+	    		<height>610</height>
+	    		<width>1260</width>
+	    		<scrolltime>200</scrolltime>
+	    		<itemgap>3</itemgap>
+	    		<itemlayout width="400" height="105">
+	    			<!-- item background -->
+	    			<control type="image">
+	    				<texture>card_medium_up.png</texture>
+	    			</control>
+	    			<!--  item thumbnail -->
+	    			<control type="image">
+	    				<posx>15</posx>
+	    				<posy>15</posy>
+	    				<width>73</width>
+	    				<height>73</height>
+	    				<aspectratio>scale</aspectratio>
+	    				<texture>$INFO[ListItem.Icon]</texture>
+	    			</control>
+	    			                    	    			
+	    			<control type="label">
+	    				<width>267</width>
+	    				<height>40</height>
+	    				<posx>107</posx>
+	    				<posy>22</posy>
+	    				<font>font21b</font>
+	    				<align>left</align>
+	    				<aligny>top</aligny>
+	    				<label>$INFO[ListItem.Label]</label>
+	    				<textcolor>FFFFFFFF</textcolor>
+	    				<wrapmultiline>false</wrapmultiline>
+	    			</control>
+	    			
+	    			<control type="label">
+	    				<posx>107</posx>
+	    				<posy>58</posy>
+	    				<width>267</width>
+	    				<height>40</height>
+	    				<font>font16</font>
+	    				<align>left</align>
+	    				<aligny>top</aligny>
+	    				<label>by $INFO[ListItem.Artist]</label>
+	    				<textcolor>FFBCBCBC</textcolor>
+	    				<wrapmultiline>false</wrapmultiline>
+	    			</control>
+	    			
+	    		</itemlayout>
+
+				<focusedlayout width="400" height="105">
+	    			<!-- item background -->
+	    			<control type="image">
+	    				<texture>card_medium_over.png</texture>
+	    			</control>
+	    			<!--  item thumbnail -->
+	    			<control type="image">
+	    				<posx>15</posx>
+	    				<posy>15</posy>
+	    				<width>73</width>
+	    				<height>73</height>
+	    				<aspectratio>scale</aspectratio>
+	    				<texture>$INFO[ListItem.Icon]</texture>
+	    			</control>
+	    			<control type="label">
+	    				<width>267</width>
+	    				<height>40</height>
+	    				<posx>107</posx>
+	    				<posy>22</posy>
+	    				<font>font21b</font>
+	    				<align>left</align>
+	    				<aligny>top</aligny>
+	    				<label>$INFO[ListItem.Label]</label>
+	    				<textcolor>FFFFFFFF</textcolor>
+	    				<wrapmultiline>false</wrapmultiline>
+	    			</control>
+	    			<control type="label">
+	    				<posx>107</posx>
+	    				<posy>58</posy>
+	    				<width>267</width>
+	    				<height>40</height>
+	    				<font>font16</font>
+	    				<align>left</align>
+	    				<aligny>top</aligny>
+	    				<label>by $INFO[ListItem.Artist]</label>
+	    				<textcolor>FFBCBCBC</textcolor>
+	    				<wrapmultiline>false</wrapmultiline>
+	    			</control>
+					
+				</focusedlayout>	    	
 	    	</control>
+	    	
 		</control>    
     </controls>
 </window>

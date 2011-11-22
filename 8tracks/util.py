@@ -19,7 +19,8 @@ def toggleTabs(tabIndex):
             mc.GetActiveWindow().GetToggleButton(tabIndex).SetSelected(True)
             
 def getFeaturedMixes():
-    featured_url = "http://8tracks.com/mixes.json?api_key=a07ee2f7cc1577f749ed10d2c796fc52515243cc&api_version=2&page=1"
+    mc.ShowDialogWait()
+    featured_url = "http://8tracks.com/mixes.json?api_key=a07ee2f7cc1577f749ed10d2c796fc52515243cc&api_version=2&per_page=30&page=1"
     fd = urllib.urlopen(featured_url)
     mix_sets = simplejson.loads(fd.read())
     listItems = mc.ListItems()
@@ -31,9 +32,9 @@ def getFeaturedMixes():
         day=mix['first_published_at'][9:10]
         item.SetDate(int(year), int(month), int(day))
         name = mix["name"].replace(u'\xbd', '')
-        item.SetTitle(str(name))
+        item.SetLabel(str(name))
         item.SetThumbnail(str(mix['cover_urls']['original']))
-        item.SetIcon(str(mix['cover_urls']['max200']))
+        item.SetIcon(str(mix['cover_urls']['sq100']))
         
         # get the real track url, so default actions like play would work
         trackD = urllib.urlopen("http://8tracks.com/sets/460486803/play.json?mix_id=%s&api_key=a07ee2f7cc1577f749ed10d2c796fc52515243cc&api_version=2" % mix["id"])
@@ -43,7 +44,7 @@ def getFeaturedMixes():
         listItems.append(item)
     mc.GetWindow(14000).GetList(201).SetItems(listItems)
     mc.GetWindow(14000).GetList(201).Refresh()
-    mc.ShowDialogNotification("Loaded %s mixes" % listItems.size())
+    mc.HideDialogWait()
     
 def playMix():
     list = mc.GetActiveWindow().GetList(201)
