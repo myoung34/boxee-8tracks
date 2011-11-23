@@ -5,7 +5,8 @@
     <onload lang="python"><![CDATA[
 import mc
 import util
-util.getFeaturedMixes()
+util.autoLogin()
+util.getFeaturedMixes(20)
 ]]>
     </onload>   
     <controls>
@@ -35,7 +36,7 @@ util.getFeaturedMixes()
 					<ondown>11</ondown>
 					<onup>15</onup>
 					<onleft>15</onleft>
-					<label>New</label>
+					<label>All</label>
 					<textcolor>white</textcolor>
 					<focusedcolor>FFf77f00</focusedcolor>
 					<altcolor>FFf77f00</altcolor>
@@ -106,6 +107,7 @@ util.toggleTabs(11)
 					<onclick lang="python"><![CDATA[ 
 import util
 util.toggleTabs(12)
+util.getFeaturedMixes(20)
 ]]></onclick>						
 				</control>				
 
@@ -160,6 +162,8 @@ util.toggleTabs(13)
 					<onclick lang="python"><![CDATA[ 
 import util
 util.toggleTabs(14)
+mc.GetActiveWindow().GetControl(201).SetVisible(False)
+mc.GetActiveWindow().GetControl(901).SetVisible(True)
 ]]></onclick>						
 				</control>					
 
@@ -175,7 +179,7 @@ util.toggleTabs(14)
 					<onright>10</onright>
 				</control>
 	    	</control>
-	    	
+	    	<!-- list of mixes -->
 	    	<control type="panel" id="201">
 	    		<posx>10</posx>
 	    		<posy>105</posy>
@@ -268,6 +272,83 @@ util.toggleTabs(14)
 				</focusedlayout>	    	
 	    	</control>
 	    	
+	    	<!-- settings area -->
+	    	<control type="group" id="901">
+	    		<posx>10</posx>
+	    		<posy>105</posy>
+	    		<height>610</height>
+	    		<width>1260</width>
+	    		<visible>false</visible>
+	    		
+	    		<control type="edit" id="991">
+	    			<label>Username:</label>
+	    			<font>font26b</font>
+	    			<posx>195</posx>
+	    			<posy>140</posy>
+	    			<height>76</height>
+	    			<width>341</width>
+	    			<texturenofocus>login_input_up.png</texturenofocus>
+	    			<texturefocus>login_input_over.png</texturefocus>
+	    			<onright>992</onright>
+	    			<ondown>993</ondown>
+	    		</control>
+	    		
+	    		<control type="edit" id="992">
+	    			<label>Password:</label>
+	    			<font>font26b</font>
+	    			<posx>555</posx>
+	    			<posy>140</posy>
+	    			<height>76</height>
+	    			<width>341</width>
+	    			<texturenofocus>login_input_up.png</texturenofocus>
+	    			<texturefocus>login_input_over.png</texturefocus>
+	    			<onleft>991</onleft>
+	    			<ondown>993</ondown>
+	    		</control>
+	    		
+	    		<control type="button" id="993">
+	    			<posx>196</posx>
+	    			<posy>220</posy>
+	    			<width>706</width>
+	    			<height>76</height>
+					<label>Login</label>
+					<textcolor>FFFFFFFF</textcolor>
+					<focusedcolor>FFFFFFFF</focusedcolor>
+					<font>font34b</font>
+					<align>center</align>
+					<aligny>center</aligny>
+					<texturenofocus>login_up.png</texturenofocus>
+					<texturefocus>login_over.png</texturefocus>
+					<onup>992</onup>
+					<onclick lang="python"><![CDATA[ 
+import mc
+import util
+util.loginUser()					
+]]>
+					
+					</onclick>	    			
+	    		</control>
+	    		<control type="button" id="994">
+	    			<posx>196</posx>
+	    			<posy>140</posy>
+	    			<width>706</width>
+	    			<height>76</height>
+					<label>Logout</label>
+					<textcolor>FFFFFFFF</textcolor>
+					<focusedcolor>FFFFFFFF</focusedcolor>
+					<font>font34b</font>
+					<align>center</align>
+					<aligny>center</aligny>
+					<texturenofocus>login_up.png</texturenofocus>
+					<texturefocus>login_over.png</texturefocus>
+					<onclick lang="python"><![CDATA[
+import mc
+import util
+util.logoutUser()
+]]>
+					</onclick>
+	    		</control>
+	    	</control>
 		</control>    
     </controls>
 </window>
