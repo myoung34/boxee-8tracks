@@ -1,8 +1,7 @@
 import mc
 import urllib
 import simplejson
-from app.user import User
-from app import user
+from app import user, ui
 
 def show_message():
     mc.ShowDialogOk("MSG", 'Starting?')
@@ -33,29 +32,25 @@ def loginUser():
         mc.HideDialogWait()
         if _user.isAuthenticated:
             mc.ShowDialogOk("Welcome", "You are logged in as " + username)
-            updateLoginVisibility(False, True)
+            ui.toggleLoginVisibility(False)
         else:
-            mc.ShowDialogNotification("An error occured")
+            ui.showErrorMessage("An Error Has Occured")
 
 def autoLogin():
     _user = user.getUser()
     if (_user.isAuthenticated):
         mc.ShowDialogNotification("Welcome " + _user.userName)
-        updateLoginVisibility(False, True)
+        ui.toggleLoginVisibility(False)
     else:
-        updateLoginVisibility(True, False)
+        ui.toggleLoginVisibility(True)
 
 def logoutUser():
-    _user = user.getUser()
-    _user.logout()
-    updateLoginVisibility(True, False)
-    
-def updateLoginVisibility(visible, logoutVisible):
-    mc.GetActiveWindow().GetControl(991).SetVisible(visible)
-    mc.GetActiveWindow().GetControl(992).SetVisible(visible)
-    mc.GetActiveWindow().GetControl(993).SetVisible(visible)
-    mc.GetActiveWindow().GetControl(994).SetVisible(logoutVisible)
-                
+    try:
+        user.getUser().logout()
+        ui.toggleLoginVisibility(True)
+    except:
+        ui.showErrorMessage("An Error Has Occured")
+                    
 def getFeaturedMixes(count):
     mc.ShowDialogWait()
     featured_url = "http://8tracks.com/mixes.json?api_key=a07ee2f7cc1577f749ed10d2c796fc52515243cc&api_version=2&per_page=%s&page=1" % count
@@ -75,6 +70,7 @@ def getFeaturedMixes(count):
         item.SetIcon(str(mix['cover_urls']['sq100']))
         
         # get the real track url, so default actions like play would work
+        # this should not be here!
         trackD = urllib.urlopen("http://8tracks.com/sets/460486803/play.json?mix_id=%s&api_key=a07ee2f7cc1577f749ed10d2c796fc52515243cc&api_version=2" % mix["id"])
         trackInformation = simplejson.loads(trackD.read())
         item.SetPath(str(trackInformation['set']['track']['url']))
@@ -86,9 +82,9 @@ def getFeaturedMixes(count):
     mc.HideDialogWait()
     
 def playMix():
-    list = mc.GetActiveWindow().GetList(201)
-    items = list.GetItems()
-    selected = items[list.GetFocusedItem()]
+    mixList = mc.GetActiveWindow().GetList(201)
+    items = mixList.GetItems()
+    selected = items[mixList.GetFocusedItem()]
     selectedId = selected.GetProperty("id")
     # get the actual url for this mix
     
